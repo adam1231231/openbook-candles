@@ -4,8 +4,13 @@ FROM chef AS planner
 COPY . .
 RUN cargo chef prepare --recipe-path recipe.json
 
-FROM rust:1.69.0-slim AS builder
+FROM chef AS builder 
 COPY --from=planner recipe.json recipe.json
+# Install cargo
+RUN apt-get update && apt-get install -y curl
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+ENV PATH="/root/.cargo/bin:${PATH}"
+
 RUN apt-get update && apt-get install -y libudev-dev clang pkg-config libssl-dev build-essential cmake
 RUN rustup component add rustfmt && update-ca-certificates
 RUN cargo chef cook --release --recipe-path recipe.json
