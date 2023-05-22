@@ -25,3 +25,6 @@ RUN apt-get update && apt-get -y install ca-certificates libssl1.1
 FROM base_image AS runtime
 COPY --from=builder /target/release/worker /usr/local/bin
 COPY --from=builder markets.json .
+
+# Run the binary
+CMD ["worker", "markets.json"]
