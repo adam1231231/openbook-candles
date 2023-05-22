@@ -1,4 +1,4 @@
-FROM lukemathwalker/cargo-chef:latest-rust-1.67.1-slim AS chef
+FROM rust:latest-slim-buster
 
 FROM chef AS planner
 COPY . .
