@@ -44,6 +44,7 @@ solana-rpc = "=1.14.13"
 spl-token = "3.5.0"
 anchor-client = "=0.26.0"
 borsh = "0.9"
+openssl = { version = "0.10", features = ["vendored"] }
 
 async-trait = "0.1"
 

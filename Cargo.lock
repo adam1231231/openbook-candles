@@ -3442,6 +3442,7 @@ dependencies = [
  "native-tls",
  "num-traits",
  "num_enum 0.6.1",
+ "openssl",
  "postgres-native-tls",
  "serde",
  "serde_derive",
