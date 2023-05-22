@@ -21,4 +21,3 @@ FROM base_image AS runtime
 COPY --from=builder /target/release/worker /usr/local/bin
 COPY --from=builder markets.json .
 COPY --from=builder ca.cer .
-COPY --from=builder client.pks .
