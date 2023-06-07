@@ -16,7 +16,7 @@ use std::env;
 use std::{collections::HashMap, str::FromStr};
 use tokio::sync::mpsc;
 
-#[tokio::main(flavor = "multi_thread", worker_threads = 10)]
+#[tokio::main(flavor = "multi_thread", worker_threads = 5)]
 async fn main() -> anyhow::Result<()> {
     dotenv::dotenv().ok();
 
